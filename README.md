@@ -21,14 +21,14 @@ Karu IA es una aplicación desarrollada durante una hackathon cuyo objetivo es a
 ## 📦 Funcionalidades principales
 1. **Escaneo de productos**:  
    - Detecta el nombre y cantidad de un alimento desde una imagen.  
-   - Reconoce la fecha de vencimiento y la guarda automáticamente.
+   - Reconoce la fecha de vencimiento y la guarda automáticamente.  
 2. **Gestión de inventario**:  
    - Lista y organiza tus alimentos.  
-   - Permite editar o eliminar registros.
+   - Permite editar o eliminar registros.  
 3. **Alertas de vencimiento**:  
-   - Notificaciones cuando un producto está próximo a caducar.
+   - Notificaciones cuando un producto está próximo a caducar.  
 4. **Sugerencias de recetas**:  
-   - Genera recetas según los alimentos disponibles y tus preferencias.
+   - Genera recetas según los alimentos disponibles y tus preferencias.  
 5. **Interfaz interactiva**:  
    - Diseño mobile-first con Tailwind.  
    - Edición rápida e intuitiva de datos.
@@ -49,6 +49,7 @@ Copiar
 Editar
 
 ## ⚡ Instalación
+
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/ManuCodello/Hackathon-Karu-IA.git
@@ -59,8 +60,10 @@ bash
 Copiar
 Editar
 python -m venv venv
-source venv/bin/activate  # En Linux/Mac
-venv\Scripts\activate     # En Windows
+# En Linux/Mac
+source venv/bin/activate
+# En Windows
+venv\Scripts\activate
 pip install -r requirements.txt
 Ejecuta la aplicación:
 
@@ -75,8 +78,7 @@ Copiar
 Editar
 http://127.0.0.1:5000
 🤝 Contribuciones
-Este es un proyecto de hackathon, pero las mejoras son bienvenidas.
-Puedes:
+Este es un proyecto de hackathon, pero las mejoras son bienvenidas. Puedes:
 
 Optimizar el rendimiento.
 
