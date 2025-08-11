@@ -1,25 +1,89 @@
-# KARU IA (Mejora)
+# Karu IA
 
-Refactor visual y de código del proyecto original, manteniendo las mismas tecnologías, endpoints y paleta. Se mejoró la legibilidad, se optimizó JavaScript y se añadieron microanimaciones y toasts con Tailwind.
+> **Tu asistente inteligente para gestionar alimentos, evitar desperdicios y descubrir recetas personalizadas.**
 
-- Backend: Flask + SQLAlchemy
-- Frontend: Jinja + Tailwind CDN + JS vanilla
-- Paleta: morado primario `#6C3FB4`, acentos existentes (p.ej. `#F59E0B`)
-- Sin nuevas funciones: solo limpieza, accesibilidad, UX y estilo.
+Karu IA es una aplicación desarrollada durante una hackathon cuyo objetivo es ayudar a los usuarios a **gestionar sus alimentos envasados**, controlando fechas de vencimiento y sugiriendo recetas según los ingredientes disponibles.
 
-## Principales mejoras
-- Plantillas con `base.html` y `partials/header.html` para mejor organización.
-- Eliminación de `onclick` inline; uso de `addEventListener` en `static/main.js`.
-- Toasts simples (reemplazo de alerts) y microanimaciones.
-- JS sin duplicados, helpers reutilizables, y manejo de errores.
-- Accesibilidad: labels/aria, foco y contraste.
+## 🚀 Objetivo del proyecto
+- **Reducir el desperdicio de alimentos** mediante recordatorios de vencimiento.
+- **Facilitar la planificación de comidas** con sugerencias basadas en tu inventario.
+- **Optimizar la experiencia del usuario** con una interfaz simple y rápida.
 
-## Estructura
-- `app.py`: factoría de app y registro de blueprint.
-- `routes/`: mismas rutas, código más limpio y sin duplicación.
-- `models/`: mismos modelos.
-- `utils/`: helpers y llamada a API externa (inalterada).
-- `templates/`: `base.html`, `index.html`, y `partials/`.
-- `static/`: `main.js`, `styles.css` y assets.
+## 🛠️ Tecnologías utilizadas
+- **Backend**: Python (Flask)
+- **Frontend**: HTML5, Tailwind CSS, JavaScript
+- **IA y procesamiento de imágenes**:
+  - Tesseract OCR (reconocimiento de texto en etiquetas)
+  - TensorFlow COCO-SSD (detección de objetos/alimentos)
+  - API de recomendación (GPT u otra gratuita)
+- **Base de datos**: SQLite
 
-Para instalación y ejecución ver `SETUP.md`.
+## 📦 Funcionalidades principales
+1. **Escaneo de productos**:  
+   - Detecta el nombre y cantidad de un alimento desde una imagen.  
+   - Reconoce la fecha de vencimiento y la guarda automáticamente.
+2. **Gestión de inventario**:  
+   - Lista y organiza tus alimentos.  
+   - Permite editar o eliminar registros.
+3. **Alertas de vencimiento**:  
+   - Notificaciones cuando un producto está próximo a caducar.
+4. **Sugerencias de recetas**:  
+   - Genera recetas según los alimentos disponibles y tus preferencias.
+5. **Interfaz interactiva**:  
+   - Diseño mobile-first con Tailwind.  
+   - Edición rápida e intuitiva de datos.
+
+## 📂 Estructura del proyecto
+/Karu-IA
+│
+├── app.py # Punto de entrada del servidor Flask
+├── static/ # Archivos estáticos (CSS, JS, imágenes)
+├── templates/ # Plantillas HTML (Jinja2)
+├── models/ # Modelos de base de datos
+├── utils/ # Funciones de apoyo y manejo de IA
+├── requirements.txt # Dependencias del proyecto
+└── README.md # Este archivo
+
+bash
+Copiar
+Editar
+
+## ⚡ Instalación
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/ManuCodello/Hackathon-Karu-IA.git
+   cd Hackathon-Karu-IA
+Crea un entorno virtual e instala dependencias:
+
+bash
+Copiar
+Editar
+python -m venv venv
+source venv/bin/activate  # En Linux/Mac
+venv\Scripts\activate     # En Windows
+pip install -r requirements.txt
+Ejecuta la aplicación:
+
+bash
+Copiar
+Editar
+flask run
+Abre en tu navegador:
+
+cpp
+Copiar
+Editar
+http://127.0.0.1:5000
+🤝 Contribuciones
+Este es un proyecto de hackathon, pero las mejoras son bienvenidas.
+Puedes:
+
+Optimizar el rendimiento.
+
+Mejorar el diseño de la interfaz.
+
+Añadir nuevas integraciones de IA.
+
+📜 Licencia
+Proyecto de hackathon con fines educativos y demostrativos.
+Uso libre con atribución.
