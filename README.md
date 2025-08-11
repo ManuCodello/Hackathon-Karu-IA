@@ -34,6 +34,7 @@ Karu IA es una aplicación desarrollada durante una hackathon cuyo objetivo es a
    - Edición rápida e intuitiva de datos.
 
 ## 📂 Estructura del proyecto
+```
 /Karu-IA
 │
 ├── app.py # Punto de entrada del servidor Flask
