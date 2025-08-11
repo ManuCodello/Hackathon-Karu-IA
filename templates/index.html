@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% block title %}Karu IA{% endblock %}
+{% block content %}
+
+{% include 'partials/header.html' %}
+
+<!-- Logo -->
+<div id="logo-karu" class="flex justify-center">
+  <img src="{{ url_for('static', filename='KaruAI_head.png') }}" alt="Logo KARU AI" class="h-80 w-auto -mb-20 z-10 relative" />
+</div>
+
+<!-- Vista Menú principal -->
+<section id="vista-menu" class="flex justify-center items-center px-4 animate-fadeIn">
+  <main class="w-full flex items-center justify-center">
+    <div class="card">
+      <h1 class="title">Bienvenido a KARU IA</h1>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <button id="btn-open-ingredientes" class="nav-card">
+          <img src="{{ url_for('static', filename='icons/ingredientes.png') }}" alt="Ingredientes" class="h-20 w-20 mb-4" />
+          <span class="font-semibold text-lg">Ingredientes</span>
+        </button>
+        <button id="btn-open-recetas" class="nav-card">
+          <img src="{{ url_for('static', filename='icons/recetas.png') }}" alt="Recetas" class="h-20 w-20 mb-4" />
+          <span class="font-semibold text-lg">Recetas</span>
+        </button>
+        <button id="btn-open-comidas" class="nav-card">
+          <img src="{{ url_for('static', filename='icons/comidas.png') }}" alt="Comidas" class="h-20 w-20 mb-4" />
+          <span class="font-semibold text-lg">Comidas</span>
+        </button>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- Ingredientes -->
+<section id="vista-ingredientes" class="vista hidden min-h-screen bg-[#f9f5ffcc] p-8 rounded-lg shadow-lg w-full max-w-4xl mt-10 mx-auto animate-fadeIn">
+  <h2 class="text-3xl font-bold text-center text-[#6C3FB4] mb-6">Agregar y Mostrar Ingredientes</h2>
+
+  <form id="ingredientes-form">
+    <div id="contenedor-ingredientes" class="space-y-4"></div>
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6">
+      <button type="button" id="btn-agregar-ingrediente" class="btn-primary">[+] Agregar ingrediente</button>
+      <button id="btn-enviar-ingredientes" type="submit" class="btn-primary hidden">Enviar ingredientes</button>
+    </div>
+  </form>
+
+  <div class="flex justify-center mt-4">
+    <button id="btn-ver-ingredientes" class="btn-secondary">Ver ingredientes</button>
+  </div>
+
+  <div id="lista-ingredientes" class="mt-6 hidden">
+    <ul class="space-y-4">
+      {% for ingrediente in ingredientes %}
+      <li class="bg-white p-4 rounded-2xl shadow-md flex flex-col md:flex-row justify-between md:items-center border border-purple-200">
+        <div class="flex items-start space-x-4 w-full">
+          <form action="/consumir-ingrediente/{{ ingrediente.id }}" method="post" class="pt-1">
+            <button type="submit" class="text-purple-600 hover:text-purple-800" title="Consumir una unidad" aria-label="Consumir una unidad">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm5 11H7v-2h10v2z"/></svg>
+            </button>
+          </form>
+          <div class="flex-grow">
+            <p class="{{ 'line-through text-gray-400' if ingrediente.consumido else 'text-gray-700' }} text-lg font-semibold">{{ ingrediente.ingrediente }}</p>
+            <p class="text-sm text-gray-500">Cantidad: {{ ingrediente.cantidad }} {{ ingrediente.unidad }}</p>
+            <p class="text-sm text-gray-500">Tipo: {{ ingrediente.tipo }}</p>
+            <p class="text-sm text-gray-500">Guardado en: {{ ingrediente.guardado }}</p>
+            <p class="text-sm text-gray-500">Vence: {{ ingrediente.vencimiento if ingrediente.vencimiento else "Sin fecha" }}</p>
+          </div>
+        </div>
+        <div class="mt-4 md:mt-0 md:ml-4 flex justify-end">
+          <form action="/eliminar-ingrediente/{{ ingrediente.id }}" method="post">
+            <button class="text-red-500 hover:text-red-700" title="Eliminar" aria-label="Eliminar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+          </form>
+        </div>
+      </li>
+      {% else %}
+      <li class="text-gray-500 text-center">No hay ingredientes.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- Recetas -->
+<section id="vista-recetas" class="vista hidden min-h-screen bg-[#f9f5ffcc] p-8 rounded-lg shadow-lg w-full max-w-4xl mt-10 mx-auto animate-fadeIn">
+  <h2 class="text-3xl font-bold text-center text-[#6C3FB4] mb-6">Agregar y Solicitar Recetas</h2>
+  <div class="flex flex-col sm:flex-row justify-center gap-4 mb-6" id="botones-recetas">
+    <button id="btn-mostrar-formulario" class="btn-primary">Agregar nueva receta</button>
+    <button id="btn-solicitar-receta" class="btn-primary">Solicitar receta</button>
+  </div>
+  <div id="loader" class="loader hidden">
+    <img src="{{ url_for('static', filename='gif-penguin.gif') }}" alt="Cargando..." />
+  </div>
+  <div id="resultado"></div>
+</section>
+
+<section id="vista-formulario_receta" class="hidden">
+  <div class="max-w-2xl mx-auto bg-white/90 p-6 rounded-lg shadow-md mb-6">
+    <h3 class="text-xl font-bold mb-4 text-[#4C1D95]">Crear nueva receta</h3>
+    <form id="form-nueva-receta">
+      <input type="text" name="nombre_receta" placeholder="Nombre de la receta" class="input" required>
+      <textarea name="descripcion" placeholder="Descripción" class="input" required></textarea>
+      <textarea name="ingredientes" placeholder="Ingredientes (separados por ;)" class="input" required></textarea>
+      <textarea name="pasos" placeholder="Pasos (separados por |)" class="input" required></textarea>
+      <input type="text" name="tiempo" placeholder="Tiempo estimado" class="input">
+      <input type="text" name="categoria" placeholder="Categoría" class="input">
+      <input type="text" name="dieta" placeholder="Dieta (ej. vegetariano; sin gluten)" class="input">
+      <input type="number" name="porciones" placeholder="Porciones" class="input">
+      <input type="text" name="calorias" placeholder="Calorías" class="input">
+      <input type="text" name="proteina" placeholder="Proteína" class="input">
+      <input type="text" name="grasa" placeholder="Grasa" class="input">
+      <input type="text" name="carbohidratos" placeholder="Carbohidratos" class="input">
+      <button type="submit" class="btn-primary mt-2">Guardar receta</button>
+    </form>
+    <p id="mensaje-guardado" class="mt-2 text-green-600 font-semibold hidden">Receta guardada correctamente.</p>
+  </div>
+</section>
+
+<!-- Comidas -->
+<section id="vista-comidas" class="vista hidden min-h-screen p-6 bg-yellow-50/80 animate-fadeIn">
+  <div class="flex flex-col items-center mb-4">
+    <img src="{{ url_for('static', filename='KaruAI_head.png') }}" alt="Logo KARU AI" class="h-56 w-auto mb-2" />
+  </div>
+  <h2 class="text-2xl font-bold mb-6 text-[#6C3FB4] text-center">Buscar comidas</h2>
+
+  <div class="flex items-center w-full max-w-2xl mx-auto px-4">
+    <input list="recetas-lista" id="buscador-recetas" placeholder="Ej: Chipa Guazú" class="border border-gray-300 rounded-full px-6 py-3 w-full focus:outline-none focus:ring-2 focus:ring-green-500 shadow-md" />
+    <button id="btn-buscar-receta" class="bg-purple-900 text-white px-4 py-3 rounded-full ml-2 hover:bg-green-600 transition shadow-md">Buscar</button>
+    <datalist id="recetas-lista"></datalist>
+  </div>
+
+  <div id="detalle-receta" class="mt-8 max-w-3xl mx-auto"></div>
+  <div id="todas-recetas-grid" class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 max-w-7xl mx-auto"></div>
+</section>
+
+{% endblock %}

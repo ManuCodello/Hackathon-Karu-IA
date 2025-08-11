@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Karu IA{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body class="font-['Raleway',_sans-serif] bg-gray-100 bg-opacity-70 min-h-screen"
+      style="background-image: url('{{ url_for('static', filename='BGKARU.jpeg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
+
+  <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+  
+  <!-- Modal de confirmación estilizado -->
+  <div id="modal-overlay" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <h3 id="modal-title" class="text-xl font-bold text-[#6C3FB4] mb-2">Confirmación</h3>
+      <p id="modal-message" class="text-gray-700 mb-4"></p>
+      <div class="flex justify-end gap-2">
+        <button id="modal-cancel" class="btn-secondary" type="button">Cancelar</button>
+        <button id="modal-ok" class="btn-primary" type="button">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  {% block content %}{% endblock %}
+
+  <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

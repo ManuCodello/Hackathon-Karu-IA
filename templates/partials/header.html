@@ -1,0 +1,22 @@
+<header class="bg-white/80 p-2 shadow-md">
+  <nav class="sticky top-0 z-50 max-w-6xl mx-auto flex justify-between items-center" role="navigation" aria-label="Principal">
+    <div class="flex items-center gap-2">
+      <a href="#" id="btn-inicio" class="flex items-center" aria-label="Volver al inicio">
+        <h1 class="text-2xl font-bold mb-1 text-[#6C3FB4]">Karu IA</h1>
+        <img src="{{ url_for('static', filename='cabezadepingui.png') }}" alt="Karu IA" class="h-14 mb-3 w-auto" />
+      </a>
+    </div>
+
+    <div class="flex items-center gap-4" id="menu-principal" aria-label="Secciones">
+      <button id="nav-ingredientes" class="group p-2 rounded hover:bg-purple-50 transition" aria-label="Ingredientes">
+        <img src="{{ url_for('static', filename='icons/ingredientes.png') }}" alt="Ingredientes" class="h-10 w-10 group-hover:scale-105 transition-transform" />
+      </button>
+      <button id="nav-recetas" class="group p-2 rounded hover:bg-purple-50 transition" aria-label="Recetas">
+        <img src="{{ url_for('static', filename='icons/recetas.png') }}" alt="Recetas" class="h-10 w-10 group-hover:scale-105 transition-transform" />
+      </button>
+      <button id="nav-comidas" class="group p-2 rounded hover:bg-purple-50 transition" aria-label="Comidas">
+        <img src="{{ url_for('static', filename='icons/comidas.png') }}" alt="Comidas" class="h-10 w-10 group-hover:scale-105 transition-transform" />
+      </button>
+    </div>
+  </nav>
+</header>

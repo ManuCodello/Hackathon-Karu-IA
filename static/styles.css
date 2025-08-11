@@ -1,0 +1,32 @@
+:root{--primary:#6C3FB4;--accent:#F59E0B;}
+
+.card{background:rgba(255,255,255,.8);padding:2rem 2rem 2.5rem;border-radius:1rem;box-shadow:0 10px 25px rgba(17,24,39,.15);text-align:center;max-width:40rem;width:100%;position:relative}
+.title{font-size:2rem;font-weight:800;margin-bottom:2rem;color:var(--primary)}
+.nav-card{display:flex;flex-direction:column;align-items:center;color:#1F2937;transition:transform .2s ease, color .2s ease}
+.nav-card:hover{color:var(--accent);transform:translateY(-2px)}
+
+.btn-primary{background:var(--primary);color:#fff;font-weight:600;padding:.5rem 1rem;border-radius:.5rem;transition:transform .15s ease, background .2s ease, box-shadow .2s ease}
+.btn-primary:hover{background:#5a5a9f;transform:translateY(-1px);box-shadow:0 6px 14px rgba(108,63,180,.3)}
+.btn-secondary{background:var(--primary);color:#fff;font-weight:600;padding:.5rem 1rem;border-radius:.5rem;transition:opacity .2s ease}
+.btn-secondary:hover{opacity:.9}
+.input{width:100%;margin-bottom:.5rem;padding:.5rem;border:1px solid #d1d5db;border-radius:.375rem}
+
+/* micro-animaciones */
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.animate-fadeIn{animation:fadeIn .5s ease-out}
+
+/* loader helper */
+.loader{display:flex;justify-content:center}
+
+/* Toasts */
+.toast{display:flex;align-items:center;gap:.5rem;background:#111827;color:#fff;padding:.75rem 1rem;border-radius:.5rem;box-shadow:0 10px 25px rgba(0,0,0,.2);opacity:0;transform:translateY(-6px);animation:toast-in .2s forwards}
+.toast.success{background:#065f46}
+.toast.error{background:#991b1b}
+.toast.info{background:#1f2937}
+@keyframes toast-in{to{opacity:1;transform:translateY(0)}}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(17,24,39,.55);backdrop-filter:saturate(140%) blur(4px);display:flex;align-items:center;justify-content:center;z-index:60;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.modal:not(.hidden){opacity:1;pointer-events:auto}
+.modal-card{background:#fff;border-radius:1rem;padding:1.25rem;box-shadow:0 20px 40px rgba(0,0,0,.25);width:min(92vw,520px);transform:translateY(6px);animation:modal-in .18s ease-out forwards}
+@keyframes modal-in{to{transform:translateY(0)}}
