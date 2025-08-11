@@ -44,40 +44,30 @@ Karu IA es una aplicación desarrollada durante una hackathon cuyo objetivo es a
 ├── utils/ # Funciones de apoyo y manejo de IA
 ├── requirements.txt # Dependencias del proyecto
 └── README.md # Este archivo
+```
 
-bash
-Copiar
-Editar
 
 ## ⚡ Instalación
-
+```
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/ManuCodello/Hackathon-Karu-IA.git
    cd Hackathon-Karu-IA
 Crea un entorno virtual e instala dependencias:
-
-bash
-Copiar
-Editar
+```
+```
 python -m venv venv
 # En Linux/Mac
 source venv/bin/activate
 # En Windows
 venv\Scripts\activate
 pip install -r requirements.txt
+```
 Ejecuta la aplicación:
-
-bash
-Copiar
-Editar
 flask run
 Abre en tu navegador:
-
-cpp
-Copiar
-Editar
 http://127.0.0.1:5000
+
 🤝 Contribuciones
 Este es un proyecto de hackathon, pero las mejoras son bienvenidas. Puedes:
 
