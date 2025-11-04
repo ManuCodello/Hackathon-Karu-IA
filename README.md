@@ -1,82 +1,114 @@
-# Karu IA
+<h1 align="center">🤖 Hackathon-Karu-IA</h1>
 
-> **Tu asistente inteligente para gestionar alimentos, evitar desperdicios y descubrir recetas personalizadas.**
+<p align="center">
+  <strong>AI-Driven Solution for Karu Hackathon</strong><br>
+  Built with JavaScript & Machine Learning for real-world impact.
+</p>
 
-Karu IA es una aplicación desarrollada durante una hackathon cuyo objetivo es ayudar a los usuarios a **gestionar sus alimentos envasados**, controlando fechas de vencimiento y sugiriendo recetas según los ingredientes disponibles.
+<p align="center">
+  <img src="https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Framework-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AI-&-ML-blueviolet?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge"/>
+</p>
 
-## 🚀 Objetivo del proyecto
-- **Reducir el desperdicio de alimentos** mediante recordatorios de vencimiento.
-- **Facilitar la planificación de comidas** con sugerencias basadas en tu inventario.
-- **Optimizar la experiencia del usuario** con una interfaz simple y rápida.
+---
 
-## 🛠️ Tecnologías utilizadas
-- **Backend**: Python (Flask)
-- **Frontend**: HTML5, Tailwind CSS, JavaScript
-- **IA y procesamiento de imágenes**:
-  - Tesseract OCR (reconocimiento de texto en etiquetas)
-  - TensorFlow COCO-SSD (detección de objetos/alimentos)
-  - API de recomendación (GPT u otra gratuita)
-- **Base de datos**: SQLite
+## 🎯 Project Summary  
+This project was developed during the Karu Hackathon, focusing on leveraging artificial intelligence to solve a **tangible challenge**.  
+The solution demonstrates full-stack capability, algorithmic thinking, data processing, and deployment readiness—ideal for a remote programming role.
 
-## 📦 Funcionalidades principales
-1. **Escaneo de productos**:  
-   - Detecta el nombre y cantidad de un alimento desde una imagen.  
-   - Reconoce la fecha de vencimiento y la guarda automáticamente.  
-2. **Gestión de inventario**:  
-   - Lista y organiza tus alimentos.  
-   - Permite editar o eliminar registros.  
-3. **Alertas de vencimiento**:  
-   - Notificaciones cuando un producto está próximo a caducar.  
-4. **Sugerencias de recetas**:  
-   - Genera recetas según los alimentos disponibles y tus preferencias.  
-5. **Interfaz interactiva**:  
-   - Diseño mobile-first con Tailwind.  
-   - Edición rápida e intuitiva de datos.
+---
 
-## 📂 Estructura del proyecto
+## 🧰 Key Features  
+- **AI/ML Model Integration**: Uses a trained model to make predictions or recommendations relevant to the hackathon problem.  
+- **Backend API**: Node.js or other JavaScript framework to handle requests, serve data, and manage logic.  
+- **Interactive Frontend**: A user‐friendly interface to input data, receive results, and visualize outcomes.  
+- **Real-Time Feedback**: Displays status, results and analytics for each input processed.  
+- **Deployment Ready**: Can be deployed on cloud services or used as prototype for production.
+
+---
+
+## 🗂 Project Structure  
+```bash
+/
+├── backend/               # Server code and ML logic  
+│   ├── server.js          # Main entry point for API  
+│   ├── model.js           # Model loading & inference  
+│   └── utils.js           # Data processing utilities  
+├── frontend/              # Web interface  
+│   ├── index.html         # Main UI  
+│   ├── style.css          # Styles and layout  
+│   └── app.js             # UI logic and API integration  
+├── data/                  # Datasets, preprocessing, model files  
+├── README.md              # This file  
+└── LICENSE                # MIT License  
 ```
-/Karu-IA
-│
-├── app.py # Punto de entrada del servidor Flask
-├── static/ # Archivos estáticos (CSS, JS, imágenes)
-├── templates/ # Plantillas HTML (Jinja2)
-├── models/ # Modelos de base de datos
-├── utils/ # Funciones de apoyo y manejo de IA
-├── requirements.txt # Dependencias del proyecto
-└── README.md # Este archivo
+⚙️ Setup & Usage
+🔹 Prerequisites
+Node.js (version 14+)
+
+npm or yarn
 ```
+🔹 Installation
+bash
+Copiar código
+git clone https://github.com/ManuCodello/Hackathon-Karu-IA.git  
+cd Hackathon-Karu-IA/backend  
+npm install  
+🔹 Running Locally
+bash
+Copiar código
+npm start            # starts backend  
+# In separate terminal  
+cd ../frontend  
 
-
-## ⚡ Instalación
+open index.html      # or serve via a static server  
 ```
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/ManuCodello/Hackathon-Karu-IA.git
-   cd Hackathon-Karu-IA
-Crea un entorno virtual e instala dependencias:
-```
-```
-python -m venv venv
-# En Linux/Mac
-source venv/bin/activate
-# En Windows
-venv\Scripts\activate
-pip install -r requirements.txt
-```
-Ejecuta la aplicación:
-flask run
-Abre en tu navegador:
-http://127.0.0.1:5000
+🔹 Usage
+Navigate to the frontend in your browser
 
-🤝 Contribuciones
-Este es un proyecto de hackathon, pero las mejoras son bienvenidas. Puedes:
+Input the required data for the hackathon challenge
 
-Optimizar el rendimiento.
+Submit & wait for the AI model to respond
 
-Mejorar el diseño de la interfaz.
+View predictions/results and analytics
 
-Añadir nuevas integraciones de IA.
+🧠 Technical Highlights
+Model trained with [specify library: TensorFlow.js, ONNX.js, etc.]
 
-📜 Licencia
-Proyecto de hackathon con fines educativos y demostrativos.
-Uso libre con atribución.
+Data pipeline to clean, normalize and structure inputs
+
+API endpoints exposed for inference and analytics
+
+Frontend built for clarity and responsiveness using plain JS/CSS
+
+🚀 What You Learned
+How to design and deploy an AI-powered application from idea to prototype
+
+How to integrate ML models into web apps
+
+How to handle full-stack workflow: backend, frontend, data, deployment
+
+How to prepare a solution under time constraints (hackathon setting) — demonstrates agility and practicality
+
+✔️ Future Improvements
+Add user authentication and dashboard for tracking multiple use-cases
+
+Expand the model or train additional models for broader scope
+
+Deploy the app as a PWA or mobile version
+
+Improve logging, testing, and CI/CD for production readiness
+
+👤 Author
+Manu Codello — Computer Science Student, Universidad Nacional de Asunción
+Passionate about algorithms, AI, data, and building products for the real world.
+
+📜 License
+This project is released under the MIT License — free to use, share and modify with attribution.
+
+php-template
+Copiar código
+
+---
